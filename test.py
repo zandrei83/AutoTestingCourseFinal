@@ -4,6 +4,7 @@ class Basic:
         self.minutes = 100
         self.sms = 0
         self.gb = 0
+
     def make_a_call(self):
         print('Can make a call')
 
@@ -22,6 +23,7 @@ class Premium(Standart):
         self.minutes = 500
         self.sms = 200
         self.gb = 10
+
     def serf_internet(self):
         print('Can serf internet')
 

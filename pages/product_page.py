@@ -26,3 +26,9 @@ class ProductPage(BasePage):
     def product_added_to_basket_confirmation_price(self):
         assert self.get_product_price() == self.browser.find_element(
             *ProductPageLocators.PRODUCT_PRICE_CONFIRMATION).text, 'Price does not match'
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.PRODUCT_NAME_CONFIRMATION)
+
+    def should_disappear_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.PRODUCT_NAME_CONFIRMATION)
