@@ -1,7 +1,7 @@
 import pytest
 from .pages.main_page import MainPage
 from .pages.login_page import LoginPage
-from .pages.page_basket import BasketPage
+from .pages.basket_page import BasketPage
 
 import warnings
 warnings.simplefilter("ignore", ResourceWarning)

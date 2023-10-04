@@ -4,6 +4,10 @@ from selenium.common.exceptions import NoAlertPresentException, TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import math
+import time
+import random
+import string
+
 
 class BasePage:
     def __init__(self, browser, url, timeout=10):
@@ -62,3 +66,15 @@ class BasePage:
 
     def go_to_basket(self):
         self.browser.find_element(*BasePageLocators.VIEW_BASKET_BUTTON).click()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
+                                                                 " probably unauthorised user"
+
+    def fake_user_email(self):
+        return str(time.time()) + "@fakemail.org"
+
+    def fake_user_password(self, password_length):
+        chars = string.ascii_letters + string.digits + string.punctuation
+        return random.sample(chars, password_length)
+
